@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-//import PetList from '../../components/PetList/PetList';
-//import People from '../../components/People/People';
+import List from '../../components/List/List';
+import People from '../../components/People/People';
 import PetfulApiService from '../../services/petful-api';
-//import Button from 'react-bootstrap/Button';
-//import Modal from 'react-bootstrap/Modal';
+
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 class Adoption extends Component {
   constructor(props) {
@@ -27,11 +28,39 @@ class Adoption extends Component {
   }
 
   componentDidMount() {
-
+    this.getNextCat();
+    this.getNextDog();
+    PetfulApiService.getPeople()
+      .then((res) => {
+        this.setState({
+          line: res
+        });
+      });
+    PetfulApiService.getNextPerson()
+      .then((res) => this.setState({
+        nextInLine: res
+      }))
+      .catch((res) => this.setState({
+        error: res
+      }));
   }
 
-  componentDidUpdate() {
-
+  componentDidUpdate(prevState) {
+    if(this.state.line[0] !== this.state.person) {
+      if(this.timer === null && this.state.inLine === true) {
+        this.timer = setInterval(() => {
+          this.handlePetQueue();
+          this.handleLineGeneration(this.state.nextInLine);
+        }, 6000);
+      }
+    }
+    if(this.state.line[0] === this.state.person && this.timer !== null) {
+      clearInterval(this.timer);
+      this.timer = null;
+      if(prevState.adopt !== true) {
+        this.toggleAdopt();
+      }
+    }
   }
 
   getNextCat = () => {
@@ -192,31 +221,33 @@ class Adoption extends Component {
       </div>
     );
   };
-  // TODO: Adjust Modal calls
   render() {
     return (
       <div className="adoption-container">
         <h1>Adoption</h1>
-        <PetList
+        <List
           toggleAdopt={this.toggleAdopt}
           getNextCat={this.getNextCat}
           getNextDog={this.getNextDog}
           adopt={this.state.adopt}
           cat={this.state.cat}
           dog={this.state.dog}
-          setInLine={this.setInLine}
+          setInQueue={this.setInQueue}
           handleShow={this.handleShow}
-          setLine={this.getAndSetLine}
+          setQueue={this.getAndSetQueue}
         />
         {this.renderAdopt()}
         <People
-          line={this.state.line}
-          inLine={this.state.inLine}
-          setInLine={this.setInLine}
+          queue={this.state.queue}
+          inQueue={this.state.inQueue}
+          setInQueue={this.setInQueue}
           setPerson={this.setPerson}
           toggleCat={this.toggleCat}
-          setLine={this.setLine}
+          setQueue={this.setQueue}
         />
+
+
+
         <div className="popup-container">
           <Modal
             className="popup"
