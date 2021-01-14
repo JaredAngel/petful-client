@@ -242,3 +242,5 @@ class Adoption extends Component {
     );
   }
 }
+
+export default Adoption;
