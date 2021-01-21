@@ -26,7 +26,7 @@ export default class Pet extends Component {
     return (
       this.props.adopt && (
         <button className="btn" onClick={() => this.dequeueAndGetNext()}>
-          Adopt Me!
+          Adopt!
         </button>
       )
     );
@@ -61,10 +61,3 @@ export default class Pet extends Component {
     );
   }
 }
-// // "age": 3,
-// "breed": "Golden Retriever",
-// "description": "A smiling golden-brown golden retreiver listening to music.",
-// "gender": "Male",
-// "imageURL": "https://images.pexels.com/photos/33053/dog-young-dog-small-dog-maltese.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-// "name": "Zim",
-// "story": "Owner Passed away"

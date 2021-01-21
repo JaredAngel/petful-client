@@ -3,23 +3,6 @@ import PetfulApiService from '../../services/petful-api';
 import Pet from '../Pet/Pet';
 
 export default class PetList extends Component {
-  // state = {
-  //   cat: {},
-  //   dog: {}
-  // }
-
-  // componentDidMount() {
-  //   this.getNextCat();
-  //   this.getNextDog();
-  // }
-
-  // getNextCat = () => {
-  //   console.log('run')
-  //   PetfulApiService.getCats().then((res) => this.setState({ cat: res }));
-  // }
-  // getNextDog = () => {
-  //   PetfulApiService.getDogs().then((res) => this.setState({ dog: res }));
-  // }
   renderError = () => {
     return <h1>No more pets!</h1>;
   };

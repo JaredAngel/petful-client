@@ -5,9 +5,13 @@ export default class AddForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { name } = e.target;
-    PetfulApiService.postPeople({ person: name.value }).then(
-      this.props.setLine(name.value)
-    );
+    PetfulApiService
+      .postPeople({ 
+        person: name.value 
+      })
+      .then(
+        this.props.setLine(name.value)
+      );
     this.props.setInLine();
     this.props.setPerson(name.value);
     this.props.toggleCat();
@@ -18,7 +22,7 @@ export default class AddForm extends Component {
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <input className="name-input" name="name"></input>
           <button className="btn" type="submit">
-            Add to Line
+            Join Line
           </button>
         </form>
       </div>

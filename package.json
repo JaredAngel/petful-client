@@ -18,6 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "author": "Jared Angel Escobedo",
   "eslintConfig": {
     "extends": "react-app"
   },
