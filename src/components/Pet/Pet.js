@@ -48,9 +48,10 @@ export default class Pet extends Component {
 
         <img className="pet-img" src={imageURL} alt="pet"></img>
         <div className="pet-details-container">
-          <h2>{name}</h2>
+          <h2 className="pet-name">{name}</h2>
           <ul className="pet-details">
-            <li>Breed: {breed} </li> <li>Gender: {gender}</li>{' '}
+            <li>Breed: {breed} </li>
+            <li>Gender: {gender}</li>{' '}
             <li>Age: {age}</li>
             <li>Story: {story}</li>
             <li>Description: {description}</li>
