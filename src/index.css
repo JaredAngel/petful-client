@@ -1,13 +1,203 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/* font-family: 'Roboto', sans-serif; */
+
+/* page */
+
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background-color: #666;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+/* header */
+
+.Header {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+  padding: 1rem;
+}
+
+.Header a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0;
+}
+
+.adopt-link {
+  float: right;
+  margin-top: 20px;
+}
+
+/* adoption */
+
+.adoption-container {
+  padding: 2rem;
+  display: flex;
+  flex-flow: column;
+  max-width: 80%;
+  margin: 2rem auto;
+}
+
+.adoption-container h1, .adoption-container h2 {
+  text-align: center;
+  color: #efefef;
+}
+
+.adoption-container .pet-details-container h2 {
+  color: #222;
+  text-align: left;
+}
+
+.pet-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.pet-list .pet-container {
+  margin: 1rem calc(1rem + 2vw);
+  background-color: #efefef;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column;
+  max-width: 35vh;
+  justify-content: space-between;
+}
+
+.pet-list .pet-container h1 {
+  color: #222;
+  margin: 0.5rem;
+}
+.people-container {
+  margin: 0 calc(1rem + 2vw);
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.people-container li {
+  list-style: none;
+  padding: 0.25rem;
+  color: #efefef;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.btn {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #222;
+  box-shadow: 1px 1px 1px #666;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  box-shadow: 2px 2px 2px #666;
+  background-color: #222;
+  color:#efefef;
+}
+
+.name-input {
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid #666;
+  border-radius: 5px;
+}
+
+.pet-container li {
+  list-style: none;
+  margin: 5px;
+}
+
+.pet-img {
+  height: 35vh;
+  width: 35vh;
+}
+
+.pet-details-container {
+  padding: 10px;
+    color: #222;
+    font-size: 20px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+.pet-details {
+  text-align: left;
+}
+
+.popup-container {
+  position: relative;
+}
+
+.popup {
+  position: fixed;
+  width: 50vw;
+  height: 50vh;
+  top: 25vh;
+  left: 25vw;
+  right: 25vw;
+  bottom: 25vh;
+  text-align: center;
+  z-index: 10;
+  background-color: #efefef;
+  color: #222;
+  font-size: 3rem;
+  padding: 10px;
+  display: flex !important;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup .btn {
+  margin: 2rem;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+/* home */
+h1.welcome {
+  color: lightblue;
+}
+.Homepage {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Homepage .page-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.process-container {
+  padding: 2rem;
+  background-color: lightblue;
 }

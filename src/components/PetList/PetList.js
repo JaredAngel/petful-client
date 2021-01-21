@@ -1,10 +1,27 @@
 import React, { Component } from 'react';
 import PetfulApiService from '../../services/petful-api';
-import Pet from '../Pets/Pets';
+import Pet from '../Pet/Pet';
 
-class PetList extends Component {
+export default class PetList extends Component {
+  // state = {
+  //   cat: {},
+  //   dog: {}
+  // }
+
+  // componentDidMount() {
+  //   this.getNextCat();
+  //   this.getNextDog();
+  // }
+
+  // getNextCat = () => {
+  //   console.log('run')
+  //   PetfulApiService.getCats().then((res) => this.setState({ cat: res }));
+  // }
+  // getNextDog = () => {
+  //   PetfulApiService.getDogs().then((res) => this.setState({ dog: res }));
+  // }
   renderError = () => {
-    return <h1>All out of pets! (This is a great thing!)</h1>;
+    return <h1>No more pets!</h1>;
   };
 
   render() {
@@ -22,8 +39,8 @@ class PetList extends Component {
             pet={this.props.cat}
             getNextPet={this.props.getNextCat}
             handleShow={this.props.handleShow}
-            setInQueue={this.props.setInQueue}
-            setQueue={this.props.setQueue}
+            setInLine={this.props.setInLine}
+            setLine={this.props.setLine}
           />
         )}
 
@@ -39,13 +56,11 @@ class PetList extends Component {
             pet={this.props.dog}
             getNextPet={this.props.getNextDog}
             handleShow={this.props.handleShow}
-            setInQueue={this.props.setInQueue}
-            setQueue={this.props.setQueue}
+            setInLine={this.props.setInLine}
+            setLine={this.props.setLine}
           />
         )}
       </div>
     );
   }
 }
-
-export default PetList;

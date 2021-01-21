@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import AddForm from '../AddForm/AddForm';
 
-class People extends Component {
-  renderQueue = () => {
-    return this.props.queue
-      .map((ind,i) => <li key={btoa(ind + i)}>{ind}</li>);
+export default class People extends Component {
+  renderLine = () => {
+    return this.props.line.map((ind,i) => <li key={btoa(ind + i)}>{ind}</li>);
   };
   render() {
     return (
       <div className="people-container">
-        <h1>People queued to adopt:</h1>
-        <ul>{this.renderQueue()} </ul>
-        {!this.props.inQueue && (
+        <h1>People waiting to Adopt:</h1>
+        <ul>{this.renderLine()} </ul>
+        {!this.props.inLine && (
           <AddForm
-            setInQueue={this.props.setInQueue}
+            setInLine={this.props.setInLine}
             setPerson={this.props.setPerson}
-            setQueue={this.props.setQueue}
+            setLine={this.props.setLine}
             toggleCat={this.props.toggleCat}
           />
         )}
@@ -23,5 +22,3 @@ class People extends Component {
     );
   }
 }
-
-export default People;

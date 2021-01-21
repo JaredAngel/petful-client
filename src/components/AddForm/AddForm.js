@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import PetfulApiService from '../../services/petful-api';
 
-class AddForm extends Component {
+export default class AddForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { name } = e.target;
-
-    PetfulApiService.postPerson({
-      person: name.value
-    })
-      .then(
-        this.props.setQueue(name.value)
-      );
-    this.props.setInQueue();
+    PetfulApiService.postPeople({ person: name.value }).then(
+      this.props.setLine(name.value)
+    );
+    this.props.setInLine();
     this.props.setPerson(name.value);
     this.props.toggleCat();
   };
@@ -22,12 +18,10 @@ class AddForm extends Component {
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <input className="name-input" name="name"></input>
           <button className="btn" type="submit">
-            Add to Queue
+            Add to Line
           </button>
         </form>
       </div>
     );
   }
 }
-
-export default AddForm;

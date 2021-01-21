@@ -3,66 +3,36 @@ import config from '../config';
 const PetfulApiService = {
   getCats() {
     return fetch(`${config.API_ENDPOINT}/pets/cats/next`)
-      .then((res) => {
-        if(!res.ok) {
-          res
-            .json()
-            .then((e) => {
-              Promise.reject(e)
-            })
-        } else {
-          res.json()
-        }
-      })
+      .then((res) =>
+        !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
   },
   getDogs() {
     return fetch(`${config.API_ENDPOINT}/pets/dogs/next`)
-      .then((res) => {
-        if(!res.ok) {
-          res
-            .json()
-            .then((e) => {
-              Promise.reject(e)
-            })
-        } else {
-          res.json()
-        }
-      })
+      .then((res) =>
+        !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
   },
-  getPerson() {
+  getPeople() {
     return fetch(`${config.API_ENDPOINT}/people`)
-      .then((res) => {
-        if(!res.ok) {
-          res
-            .json()
-            .then((e) => {
-              Promise.reject(e)
-            })
-        } else {
-          res.json()
-        }
-      })
+      .then((res) =>
+        !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
   },
-  postPerson(person) {
+  postPeople(person) {
     return fetch(`${config.API_ENDPOINT}/people`, {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: { 
+        'content-type': 'application/json' 
+      },
       body: JSON.stringify(person),
     });
   },
   getNextPerson() {
     return fetch(`${config.API_ENDPOINT}/people/next`)
-    .then((res) => {
-      if(!res.ok) {
-        res
-          .json()
-          .then((e) => {
-            Promise.reject(e)
-          })
-      } else {
-        res.json()
-      }
-    })
+      .then((res) =>
+        !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
   },
   dequeueCats() {
     return fetch(`${config.API_ENDPOINT}/pets/cats/next`, {
@@ -81,5 +51,4 @@ const PetfulApiService = {
     });
   },
 };
-
 export default PetfulApiService;
