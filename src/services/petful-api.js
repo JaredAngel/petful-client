@@ -2,25 +2,25 @@ import config from '../config';
 
 const PetfulApiService = {
   getCats() {
-    return fetch(`${config.API_ENDPOINT}/pets/cats/next`)
+    return fetch(`${config.REACT_APP_API_BASE}/pets/cats/next`)
       .then((res) =>
         !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
   getDogs() {
-    return fetch(`${config.API_ENDPOINT}/pets/dogs/next`)
+    return fetch(`${config.REACT_APP_API_BASE}/pets/dogs/next`)
       .then((res) =>
         !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
   getPeople() {
-    return fetch(`${config.API_ENDPOINT}/people`)
+    return fetch(`${config.REACT_APP_API_BASE}/people`)
       .then((res) =>
         !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
   postPeople(person) {
-    return fetch(`${config.API_ENDPOINT}/people`, {
+    return fetch(`${config.REACT_APP_API_BASE}/people`, {
       method: 'POST',
       headers: { 
         'content-type': 'application/json' 
@@ -29,13 +29,13 @@ const PetfulApiService = {
     });
   },
   getNextPerson() {
-    return fetch(`${config.API_ENDPOINT}/people/next`)
+    return fetch(`${config.REACT_APP_API_BASE}/people/next`)
       .then((res) =>
         !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
   dequeueCats() {
-    return fetch(`${config.API_ENDPOINT}/pets/cats/next`, {
+    return fetch(`${config.REACT_APP_API_BASE}/pets/cats/next`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
@@ -43,7 +43,7 @@ const PetfulApiService = {
     });
   },
   dequeueDogs() {
-    return fetch(`${config.API_ENDPOINT}/pets/dogs/next`, {
+    return fetch(`${config.REACT_APP_API_BASE}/pets/dogs/next`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
